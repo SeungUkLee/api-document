@@ -1,1 +1,1 @@
-# Skeleton project for Swagger
+# This is "How Are You Today" App api document.
