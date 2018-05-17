@@ -1,7 +1,8 @@
 swagger: "2.0"
 info:
   version: "1.0"
-  title: How Are You Today
+  title: How Are You Today App API Document version 1.0
+  description: 본 문서는  How Are You Today APP API 문서를 서술하고있습니다.
 # during dev, should point to your local machine
 host: localhost:10010
 # basePath prefixes all resource paths 
@@ -18,7 +19,7 @@ consumes:
 produces:
   - application/json
 paths:
-  /posts:
+  /api/v1/posts:
     # binds a127 app logic to a route
     x-swagger-router-controller: post
     get:
@@ -56,7 +57,7 @@ paths:
           description: Error
           schema:
             $ref: "#/definitions/ErrorResponse"
-  /posts/{id}:
+  /api/v1/posts/{id}:
     # our controller name
     x-swagger-router-controller: post
     get:
@@ -135,15 +136,24 @@ definitions:
         items: 
           type: object
           properties:
-            id:
-              type: string
             title:
               type: string
             content:
               type: string
+            created:
+              example: yyyy-MM-dd HH:mm:ss
+            comments:
+              type: number
+              example: 3
+            author:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: hello@email.com
+
   GetPostResponse:
     required:
-      - id
       - title
       - content
     properties:
